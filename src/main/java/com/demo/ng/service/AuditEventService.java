@@ -2,6 +2,7 @@ package com.demo.ng.service;
 
 import com.demo.ng.config.audit.AuditEventConverter;
 import com.demo.ng.repository.PersistenceAuditEventRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.boot.actuate.audit.AuditEvent;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,20 +19,13 @@ import java.util.Optional;
  */
 @Service
 @Transactional
+@AllArgsConstructor
 public class AuditEventService {
 
     private final PersistenceAuditEventRepository persistenceAuditEventRepository;
 
     private final AuditEventConverter auditEventConverter;
-
-    public AuditEventService(
-        PersistenceAuditEventRepository persistenceAuditEventRepository,
-        AuditEventConverter auditEventConverter) {
-
-        this.persistenceAuditEventRepository = persistenceAuditEventRepository;
-        this.auditEventConverter = auditEventConverter;
-    }
-
+    
     public Page<AuditEvent> findAll(Pageable pageable) {
         return persistenceAuditEventRepository.findAll(pageable)
             .map(auditEventConverter::convertToAuditEvent);

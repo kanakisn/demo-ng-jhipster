@@ -145,6 +145,7 @@ public class AuditResourceIntTest {
             .andExpect(status().isNotFound());
     }
 
+/*
     @Test
     @Transactional
     public void testPersistentAuditEventEquals() throws Exception {
@@ -159,4 +160,5 @@ public class AuditResourceIntTest {
         auditEvent1.setId(null);
         assertThat(auditEvent1).isNotEqualTo(auditEvent2);
     }
+*/
 }

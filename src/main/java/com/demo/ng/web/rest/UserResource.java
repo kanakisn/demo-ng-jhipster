@@ -14,6 +14,8 @@ import com.demo.ng.web.rest.util.HeaderUtil;
 import com.demo.ng.web.rest.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -55,23 +57,16 @@ import java.util.*;
  */
 @RestController
 @RequestMapping("/api")
+@AllArgsConstructor
+@Slf4j
 public class UserResource {
-
-    private final Logger log = LoggerFactory.getLogger(UserResource.class);
-
+    
     private final UserService userService;
 
     private final UserRepository userRepository;
 
     private final MailService mailService;
-
-    public UserResource(UserService userService, UserRepository userRepository, MailService mailService) {
-
-        this.userService = userService;
-        this.userRepository = userRepository;
-        this.mailService = mailService;
-    }
-
+    
     /**
      * POST  /users  : Creates a new user.
      * <p>

@@ -14,6 +14,8 @@ import com.demo.ng.web.rest.errors.*;
 import com.demo.ng.web.rest.vm.KeyAndPasswordVM;
 import com.demo.ng.web.rest.vm.ManagedUserVM;
 
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,10 +33,10 @@ import java.util.*;
  */
 @RestController
 @RequestMapping("/api")
+@AllArgsConstructor
+@Slf4j
 public class AccountResource {
-
-    private final Logger log = LoggerFactory.getLogger(AccountResource.class);
-
+    
     private final UserRepository userRepository;
 
     private final UserService userService;
@@ -42,15 +44,7 @@ public class AccountResource {
     private final MailService mailService;
 
     private final PersistentTokenRepository persistentTokenRepository;
-
-    public AccountResource(UserRepository userRepository, UserService userService, MailService mailService, PersistentTokenRepository persistentTokenRepository) {
-
-        this.userRepository = userRepository;
-        this.userService = userService;
-        this.mailService = mailService;
-        this.persistentTokenRepository = persistentTokenRepository;
-    }
-
+    
     /**
      * POST  /register : register the user.
      *
