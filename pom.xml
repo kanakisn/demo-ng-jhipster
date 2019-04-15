@@ -10,10 +10,32 @@
 
     <repositories>
     <!-- more information at https://blogs.oracle.com/dev2dev/entry/how_to_get_oracle_jdbc -->
+<!--
         <repository>
             <id>maven.oracle.com</id>
             <name>oracle-maven-repo</name>
             <url>https://maven.oracle.com</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+        </repository>
+-->
+        <repository>
+            <id>maven.icm</id>
+            <name>maven-icm-repo</name>
+            <url>http://nexus.talanlabs.com/content/repositories/releases/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+        </repository>
+        <repository>
+            <id>maven.central</id>
+            <name>maven-central-repo</name>
+            <url>http://central.maven.org/maven2/</url>
             <layout>default</layout>
             <releases>
                 <enabled>true</enabled>
@@ -25,6 +47,16 @@
 
     <pluginRepositories>
         <!-- jhipster-needle-maven-plugin-repository -->
+        <pluginRepository>
+            <id>maven.central</id>
+            <name>maven-central-repo</name>
+            <url>http://central.maven.org/maven2/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+        </pluginRepository>
     </pluginRepositories>
 
     <!-- jhipster-needle-distribution-management -->
@@ -182,9 +214,17 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
         <!-- more information at https://blogs.oracle.com/dev2dev/entry/how_to_get_oracle_jdbc -->
+<!--
         <dependency>
             <groupId>com.oracle.jdbc</groupId>
             <artifactId>ojdbc8</artifactId>
+        </dependency>
+-->
+        <!-- https://mvnrepository.com/artifact/com.oracle/ojdbc -->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc</artifactId>
+            <version>6</version>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
@@ -300,6 +340,12 @@
             <artifactId>metrics-core</artifactId>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <version>3.0.0-M2</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -485,7 +531,7 @@
                         <defaultSchemaName></defaultSchemaName>
                         <username></username>
                         <password></password>
-                        <referenceUrl>hibernate:spring:com.demo.ng.domain?dialect=org.hibernate.dialect.Oracle12cDialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
+                        <referenceUrl>hibernate:spring:com.demo.ng.domain?dialect=org.hibernate.dialect.Oracle11gDialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
                         <verbose>true</verbose>
                         <logging>debug</logging>
                     </configuration>
