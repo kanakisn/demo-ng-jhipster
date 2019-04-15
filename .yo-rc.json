@@ -1,0 +1,37 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "com.demo.ng",
+            "nativeLanguage": "en"
+        },
+        "jhipsterVersion": "5.8.2",
+        "applicationType": "monolith",
+        "baseName": "demong",
+        "packageName": "com.demo.ng",
+        "packageFolder": "com/demo/ng",
+        "serverPort": "8080",
+        "authenticationType": "session",
+        "cacheProvider": "no",
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "oracle",
+        "prodDatabaseType": "oracle",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "rememberMeKey": "3f4953ccd0b294318f28834ad853f867cf73e8d33f059abaa58857e40383f1a784e4a4833384e6f7aef39695f3d07c7cc721",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": true,
+        "nativeLanguage": "en",
+        "languages": ["en"]
+    }
+}
