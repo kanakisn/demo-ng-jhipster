@@ -6,6 +6,8 @@ import { JhiLanguageService } from 'ng-jhipster';
 import { EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from 'app/shared';
 import { LoginModalService } from 'app/core';
 import { Register } from './register.service';
+import { State, Store } from '@ngrx/store';
+import { ADD_OPERATION } from 'app/common/operations';
 
 @Component({
     selector: 'jhi-register',
@@ -26,7 +28,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         private loginModalService: LoginModalService,
         private registerService: Register,
         private elementRef: ElementRef,
-        private renderer: Renderer
+        private renderer: Renderer,
+        private _store: Store<State<any>>
     ) {}
 
     ngOnInit() {
@@ -51,6 +54,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
                 this.registerService.save(this.registerAccount).subscribe(
                     () => {
                         this.success = true;
+                        this.updateStoreOnRegistration(this.registerAccount.login);
                     },
                     response => this.processError(response)
                 );
@@ -71,5 +75,14 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         } else {
             this.error = 'ERROR';
         }
+    }
+
+    private updateStoreOnRegistration(username: string) {
+        this._store.dispatch({
+            type: ADD_OPERATION,
+            payload: {
+                reason: username
+            }
+        });
     }
 }

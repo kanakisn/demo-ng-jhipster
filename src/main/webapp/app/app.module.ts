@@ -19,6 +19,8 @@ import { DemongEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { StoreModule } from '@ngrx/store';
+import { todos } from 'app/common/operations';
 
 @NgModule({
     imports: [
@@ -37,7 +39,8 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         DemongAccountModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
         DemongEntityModule,
-        DemongAppRoutingModule
+        DemongAppRoutingModule,
+        StoreModule.forRoot({ todos })
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
     providers: [

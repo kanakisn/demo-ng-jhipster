@@ -3,6 +3,8 @@ import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { LoginModalService, AccountService, Account } from 'app/core';
+import { State, Store } from '@ngrx/store';
+import { Operation } from 'app/common/operation.model';
 
 @Component({
     selector: 'jhi-home',
@@ -10,13 +12,16 @@ import { LoginModalService, AccountService, Account } from 'app/core';
     styleUrls: ['home.scss']
 })
 export class HomeComponent implements OnInit {
+    public registrations: any;
+
     account: Account;
     modalRef: NgbModalRef;
 
     constructor(
         private accountService: AccountService,
         private loginModalService: LoginModalService,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        private _store: Store<State<any>>
     ) {}
 
     ngOnInit() {
@@ -24,6 +29,7 @@ export class HomeComponent implements OnInit {
             this.account = account;
         });
         this.registerAuthenticationSuccess();
+        this._store.select('todos').subscribe(state => (this.registrations = state));
     }
 
     registerAuthenticationSuccess() {
