@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Account, AccountService } from 'app/core';
 import { HttpResponse } from '@angular/common/http';
+import { DetailProfileComponent } from 'app/account/profile/detail-profile/detail-profile.component';
 
 @Component({
     selector: 'jhi-profile',
@@ -12,6 +13,9 @@ export class ProfileComponent implements OnInit {
 
     account: Account;
 
+    @ViewChild(DetailProfileComponent)
+    detailProfileComponent: DetailProfileComponent;
+
     constructor(private accountService: AccountService) {}
 
     ngOnInit() {
@@ -19,6 +23,13 @@ export class ProfileComponent implements OnInit {
             this.accountUsername = accountResponse.body.email;
             this.account = accountResponse.body;
         });
+        setInterval(() => {
+            this.accountUsername = 'From parent component ' + new Date().toISOString();
+        }, 10000);
+
+        setInterval(() => {
+            this.detailProfileComponent.changeParentName('From child component ' + new Date().toISOString());
+        }, 7500);
     }
 
     changeName($event) {

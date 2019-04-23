@@ -4,6 +4,6 @@
         <input class="form-control" type="text" #valueInputElement/>
         <button class="form-select-button" (click)="changeName(valueInputElement.value)">Change name</button>
 
-        <input class="form-control" type="text" [value]="accountName" (input)="changeParentName($event)"/>
+        <input class="form-control" type="text" [value]="accountName" (input)="changeParentName($event.target.value)"/>
     </div>
 </div>

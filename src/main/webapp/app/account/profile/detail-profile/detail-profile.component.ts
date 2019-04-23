@@ -26,7 +26,7 @@ export class DetailProfileComponent implements OnInit {
         this.changeNameEventEmitter.emit(name);
     }
 
-    changeParentName($event) {
-        this.accountNameChange.emit($event.target.value);
+    changeParentName(value: string) {
+        this.accountNameChange.emit(value);
     }
 }
