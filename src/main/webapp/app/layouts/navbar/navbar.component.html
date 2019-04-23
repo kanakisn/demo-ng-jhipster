@@ -116,6 +116,13 @@
                         </a>
                     </li>
                     <li *ngSwitchCase="true">
+                        <a class="dropdown-item" routerLink="profile" routerLinkActive="active"
+                           (click)="collapseNavbar()">
+                            <fa-icon icon="wrench" fixedWidth="true"></fa-icon>
+                            <span>My Profile</span>
+                        </a>
+                    </li>
+                    <li *ngSwitchCase="true">
                         <a class="dropdown-item" routerLink="password" routerLinkActive="active" (click)="collapseNavbar()">
                             <fa-icon icon="clock" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.account.password">Password</span>

@@ -9,6 +9,7 @@ import {
     sessionsRoute,
     settingsRoute
 } from './';
+import { ProfileComponent } from 'app/account/profile/profile.component';
 
 const ACCOUNT_ROUTES = [
     activateRoute,
@@ -17,7 +18,11 @@ const ACCOUNT_ROUTES = [
     passwordResetInitRoute,
     registerRoute,
     sessionsRoute,
-    settingsRoute
+    settingsRoute,
+    {
+        path: 'profile',
+        component: ProfileComponent
+    }
 ];
 
 export const accountState: Routes = [

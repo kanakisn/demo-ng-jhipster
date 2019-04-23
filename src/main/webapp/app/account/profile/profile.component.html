@@ -1,0 +1,5 @@
+<p>
+    <span>{{accountUsername}}</span>
+    <jhi-detail-profile [account]="account" (changeNameEventEmitter)="changeName($event)"
+                        [(accountName)]="accountUsername"></jhi-detail-profile>
+</p>

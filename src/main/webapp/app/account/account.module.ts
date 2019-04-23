@@ -14,6 +14,8 @@ import {
     SettingsComponent,
     accountState
 } from './';
+import { ProfileComponent } from './profile/profile.component';
+import { DetailProfileComponent } from './profile/detail-profile/detail-profile.component';
 
 @NgModule({
     imports: [DemongSharedModule, RouterModule.forChild(accountState)],
@@ -25,7 +27,9 @@ import {
         PasswordResetInitComponent,
         PasswordResetFinishComponent,
         SessionsComponent,
-        SettingsComponent
+        SettingsComponent,
+        ProfileComponent,
+        DetailProfileComponent
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
